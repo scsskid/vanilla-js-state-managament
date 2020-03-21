@@ -1,6 +1,32 @@
 import PubSub from "../lib/pubsub.js";
 
-export default class Store {
+const actions = {
+  addItem(context, payload) {
+    context.commit("addItem", payload);
+  },
+  clearItem(context, payload) {
+    context.commit("clearItem", payload);
+  }
+};
+
+const mutations = {
+  addItem(state, payload) {
+    state.items.push(payload);
+
+    return state;
+  },
+  clearItem(state, payload) {
+    state.items.splice(payload.index, 1);
+
+    return state;
+  }
+};
+
+let state = {
+  items: ["I made this", "Another thing"]
+};
+
+export class Store {
   constructor(params) {
     // Add some default objects to hold our actions, mutations and state
     this.actions = {};
@@ -116,3 +142,9 @@ export default class Store {
     return true;
   }
 }
+
+export default new Store({
+  actions,
+  mutations,
+  state
+});

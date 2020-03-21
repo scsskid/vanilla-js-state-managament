@@ -1,4 +1,4 @@
-import { Store } from "./store/index.js";
+import store from "./store/store.js";
 
 // Load up components
 import Count from "./components/count.js";
@@ -18,7 +18,7 @@ formElement.addEventListener("submit", evt => {
 
   // If there's some content, trigger the action and clear the field, ready for the next item
   if (value.length) {
-    Store.dispatch("addItem", value);
+    store.dispatch("addItem", value);
     inputElement.value = "";
     inputElement.focus();
   }

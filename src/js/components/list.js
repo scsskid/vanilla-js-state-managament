@@ -1,5 +1,5 @@
 import Component from "../lib/component.js";
-import store from "../store/index.js";
+import store from "../store/store.js";
 
 export default class List extends Component {
   // Pass our store instance and the HTML element up to the parent Component

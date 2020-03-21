@@ -1,5 +1,5 @@
 import Component from "../lib/component.js";
-import store from "../store/index.js";
+import store from "../store/store.js";
 
 export default class Status extends Component {
   constructor() {
@@ -17,6 +17,6 @@ export default class Status extends Component {
   render() {
     let suffix = store.state.items.length !== 1 ? "s" : "";
 
-    this.element.innerHTML = `${store.state.items.length} item${suffix}`;
+    this.element.innerHTML = `${store.state.items.length} 123item${suffix}`;
   }
 }
